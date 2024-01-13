@@ -11,19 +11,20 @@ public class Wall implements Structure {
     public Optional<Block> findBlockByColor(String color) {
         for (Block block : blocks) {
             if (block instanceof CompositeBlock) {
-                Optional<Block> foundBlock = findBlockByColorInCompositeBlock(color, (CompositeBlock) block);
+                Optional<Block> foundBlock = getBlockByColor(color, (CompositeBlock) block);
             }
             if (block.getColor().equals(color)) {
                 return Optional.of(block);
             }
+
         }
         return Optional.empty();
     }
 
-    private Optional<Block> findBlockByColorInCompositeBlock(String color, CompositeBlock compositeBlock) {
+    private Optional<Block> getBlockByColor(String color, CompositeBlock compositeBlock) {
         for (Block block : compositeBlock.getBlocks()) {
             if (block instanceof CompositeBlock) {
-                Optional<Block> foundBlock = findBlockByColorInCompositeBlock(color, (CompositeBlock) block);
+                Optional<Block> foundBlock = getBlockByColor(color, (CompositeBlock) block);
                 if (foundBlock.isPresent()) {
                     return foundBlock;
                 }
