@@ -6,7 +6,7 @@ Implement the following methods in the Wall class:
 Ensure to avoid code duplication and place all logic within the Wall class. Consider and implement the CompositeBlock
 interface in your analysis.
 
-**Analysis:**
+**ANALYSIS:**
 
 Blocks have both color and material attributes. 
 There are two possibilities:
